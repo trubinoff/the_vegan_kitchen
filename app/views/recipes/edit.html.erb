@@ -28,13 +28,8 @@
       </div>
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+      <input type="hidden" name="user_id"  value="<%= current_user.id%>">
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @recipe.user_id %>">
-      </div>
 
       <!-- Label and input for description -->
       <div class="form-group">
@@ -51,7 +46,8 @@
           Cuisine
         </label>
 
-        <input type="text" id="cuisine_id" name="cuisine_id" placeholder="Cuisine" class="form-control" value="<%= @recipe.cuisine_id %>">
+        <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.order("name ASC"), :id, :name, @recipe.cuisine_id), :class => "form-control") %>
+
       </div>
 
       <!-- Label and input for type_id -->
@@ -60,8 +56,7 @@
           Type
         </label>
 
-        <input type="text" id="type_id" name="type_id" placeholder="Type" class="form-control" value="<%= @recipe.type_id %>">
-      </div>
+      <%= select_tag(:type_id, options_from_collection_for_select(Type.order("name ASC"), :id, :name, @recipe.type_id), :class => "form-control") %>
 
       <!-- Label and input for key_food_id -->
       <div class="form-group">
@@ -69,7 +64,7 @@
           Key food
         </label>
 
-        <input type="text" id="key_food_id" name="key_food_id" placeholder="Key food" class="form-control" value="<%= @recipe.key_food_id %>">
+        <%= select_tag(:key_food_id, options_from_collection_for_select(KeyFood.order("name ASC"), :id, :name, @recipe.key_food_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

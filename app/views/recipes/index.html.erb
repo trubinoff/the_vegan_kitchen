@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Recipes
+    All Recipes
     <a href="/recipes/new" class="btn btn-lg btn-success">New Recipe</a>
   </h1>
 </div>
@@ -19,9 +19,9 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.cuisine_id %></td>
-        <td><%= recipe.type_id %></td>
-        <td><%= recipe.key_food_id %></td>
+        <td><%= recipe.cuisine.name %></td>
+        <td><%= recipe.type.name %></td>
+        <td><%= recipe.key_food.name %></td>
         <td>
           <a href="/recipes/<%= recipe.id %>" class="btn btn-primary">Show</a>
           <a href="/recipes/<%= recipe.id %>/edit" class="btn btn-warning">Edit</a>

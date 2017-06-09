@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Recipe #<%= @recipe.id %></h3>
+  <h3><%= @recipe.name %></h3>
 </div>
 
 <div class="row">
@@ -8,20 +8,17 @@
       <dt>Name</dt>
       <dd><%= @recipe.name %></dd>
 
-      <dt>User</dt>
-      <dd><%= @recipe.user_id %></dd>
+      <dt>Cuisine</dt>
+      <dd><%= @recipe.cuisine.name %></dd>
+
+      <dt>Type</dt>
+      <dd><%= @recipe.type.name %></dd>
+
+      <dt>Key food</dt>
+      <dd><%= @recipe.key_food.name %></dd>
 
       <dt>Description</dt>
       <dd><%= @recipe.description %></dd>
-
-      <dt>Cuisine</dt>
-      <dd><%= @recipe.cuisine_id %></dd>
-
-      <dt>Type</dt>
-      <dd><%= @recipe.type_id %></dd>
-
-      <dt>Key food</dt>
-      <dd><%= @recipe.key_food_id %></dd>
 
     </dl>
 
