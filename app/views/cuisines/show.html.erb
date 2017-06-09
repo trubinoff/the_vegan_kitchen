@@ -10,6 +10,22 @@
 
     </dl>
 
+    <h3>
+      Recipes
+    </h3> 
+
+    <dd>
+        <ul class="list-group">
+        <% @cuisine.recipes.each do |recipe| %>
+          <li class="list-group-item">
+            <a href="/recipes/<%= recipe.id %>">
+              <%= recipe.name %>
+            </a>
+          </li>
+        <% end %>
+        </ul>
+      </dd>
+
     <div class="btn-group btn-group-justified">
       <a href="/cuisines" class="btn btn-primary">
         Back
