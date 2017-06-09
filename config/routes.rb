@@ -89,4 +89,12 @@ Rails.application.routes.draw do
 
   root 'recipes#index'
 
+  #------------------------------
+
+  # Routes for the Home resource:
+
+  # READ
+  get "/home", :controller => "home", :action => "index"
+  get "/home/:id", :controller => "home", :action => "show"
+
 end

@@ -10,8 +10,6 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Name</th>
-        <th>User</th>
-        <th>Description</th>
         <th>Cuisine</th>
         <th>Type</th>
         <th>Key food</th>
@@ -21,8 +19,6 @@
       <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
-        <td><%= recipe.user_id %></td>
-        <td><%= recipe.description %></td>
         <td><%= recipe.cuisine_id %></td>
         <td><%= recipe.type_id %></td>
         <td><%= recipe.key_food_id %></td>
