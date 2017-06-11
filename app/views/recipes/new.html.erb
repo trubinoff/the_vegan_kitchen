@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @recipe.errors.any? %>
-  <% @recipe.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @recipe.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -32,9 +32,10 @@
 
       <!-- Label and input for description -->
       <div class="form-group">
-        <label for="ingredients" class="control-label">
+        <label for="description" class="control-label">
           Description
         </label>
+
 
         <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @recipe.description %></textarea>
       </div>
@@ -45,7 +46,7 @@
           Cuisine
         </label>
 
-          <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.order("name ASC"), :id, :name, @recipe.cuisine_id), :class => "form-control") %>
+        <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.order("name ASC"), :id, :name, @recipe.cuisine_id), :class => "form-control") %>
 
       </div>
 
@@ -55,22 +56,23 @@
           Type
         </label>
 
-          <%= select_tag(:type_id, options_from_collection_for_select(Type.order("name ASC"), :id, :name, @recipe.type_id), :class => "form-control") %>
+        <%= select_tag(:type_id, options_from_collection_for_select(Type.order("name ASC"), :id, :name, @recipe.type_id), :class => "form-control") %>
 
-      <!-- Label and input for key_food_id -->
-      <div class="form-group">
-        <label for="key_food_id" class="control-label">
-          Key food
-        </label>
+        <!-- Label and input for key_food_id -->
+        <div class="form-group">
+          <label for="key_food_id" class="control-label">
+            Key food
+          </label>
 
-        <%= select_tag(:key_food_id, options_from_collection_for_select(KeyFood.order("name ASC"), :id, :name, @recipe.key_food_id), :class => "form-control") %>
-      </div>
+          <%= select_tag(:key_food_id, options_from_collection_for_select(KeyFood.order("name ASC"), :id, :name, @recipe.key_food_id), :class => "form-control") %>
+        </div>
 
-      <button class="btn btn-success">
-        Create Recipe
-      </button>
-      or
-      <a href="/recipes">Cancel</a>
-    </form>
+
+        <button class="btn btn-success">
+          Create Recipe
+        </button>
+        or
+        <a href="/recipes">Cancel</a>
+      </form>
+    </div>
   </div>
-</div>

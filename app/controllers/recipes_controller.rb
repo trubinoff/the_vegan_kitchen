@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order(:name).all
 
     render("recipes/index.html.erb")
   end
@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
     @recipe.type_id = params[:type_id]
     @recipe.key_food_id = params[:key_food_id]
 
+
     save_status = @recipe.save
 
     if save_status == true
@@ -51,6 +52,7 @@ class RecipesController < ApplicationController
     @recipe.cuisine_id = params[:cuisine_id]
     @recipe.type_id = params[:type_id]
     @recipe.key_food_id = params[:key_food_id]
+
 
     save_status = @recipe.save
 

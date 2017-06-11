@@ -1,6 +1,6 @@
 class KeyFoodsController < ApplicationController
   def index
-    @key_foods = KeyFood.all
+    @key_foods = KeyFood.order(:name).all
 
     render("key_foods/index.html.erb")
   end

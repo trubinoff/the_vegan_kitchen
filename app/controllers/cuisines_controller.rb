@@ -1,6 +1,6 @@
 class CuisinesController < ApplicationController
   def index
-    @cuisines = Cuisine.all
+    @cuisines = Cuisine.order(:name).all
 
     render("cuisines/index.html.erb")
   end

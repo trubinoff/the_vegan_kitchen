@@ -19,13 +19,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>">
-      </div>
+      <input type="hidden" name="user_id"  value="<%= current_user.id%>">
 
       <!-- Label and input for recipe_id -->
       <div class="form-group">
@@ -33,7 +27,8 @@
           Recipe
         </label>
 
-        <input type="text" id="recipe_id" name="recipe_id" placeholder="Recipe" class="form-control" value="<%= @favorite.recipe_id %>">
+        <%= select_tag(:recipe_id, options_from_collection_for_select(Recipe.order("name ASC"), :id, :name, @favorite.recipe), :class => "form-control") %>
+
       </div>
 
       <button class="btn btn-warning">
